@@ -73,7 +73,7 @@ end
 # You should use this register if you want to add custom paths to traverse the user details JSON.
 # We'll store the value in the user associated account's extra attribute hash using the full path as the key.
 DiscoursePluginRegistry.define_filtered_register :oauth2_basic_additional_json_paths
-
+require 'faraday'
 class ::OAuth2BasicAuthenticator < Auth::ManagedAuthenticator
   def name
     "oauth2_basic"
@@ -281,10 +281,26 @@ class ::OAuth2BasicAuthenticator < Auth::ManagedAuthenticator
           :username
         ]
 #         auth["info"]["image"] = fetched_user_details[:avatar] if fetched_user_details[:avatar]
-        log("user id: #{fetched_user_details[:user_id]}")
-        response = Faraday.get('https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=247964&size=352x352&format=Png&isCircular=false')
-        log("Url Response: #{response}")
-        auth["info"]["image"] = "https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=#{fetched_user_details[:user_id]}&size=352x352&format=Png&isCircular=false" if fetched_user_details[:user_id]
+
+        if fetched_user_details[:user_id]
+          connection = Faraday.new "https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=#{fetched_user_details[:user_id]}&size=352x352&format=Png&isCircular=false" do |conn|
+            conn.response :json, :content_type => /\bjson$/
+
+            conn.adapter Faraday.default_adapter
+          end
+
+          response = connection.get()
+          if response.status == 200
+            if response.body and response.body["data"] and response.body["data"][0]
+              data = response.body["data"][0]
+              if data["state"] == "Completed"
+                image = data["imageUrl"]
+                auth["info"]["image"] = image
+              end
+            end
+          end
+        end
+#         auth["info"]["image"] = "https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=#{fetched_user_details[:user_id]}&size=352x352&format=Png&isCircular=false" if fetched_user_details[:user_id]
         %w[name email email_verified].each do |property|
           auth["info"][property] = fetched_user_details[property.to_sym] if fetched_user_details[
             property.to_sym
