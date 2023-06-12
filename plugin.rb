@@ -282,6 +282,8 @@ class ::OAuth2BasicAuthenticator < Auth::ManagedAuthenticator
         ]
 #         auth["info"]["image"] = fetched_user_details[:avatar] if fetched_user_details[:avatar]
         log("user id: #{fetched_user_details[:user_id]}")
+        response = Faraday.get('https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=247964&size=352x352&format=Png&isCircular=false')
+        log("Url Response: #{response}")
         auth["info"]["image"] = "https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=#{fetched_user_details[:user_id]}&size=352x352&format=Png&isCircular=false" if fetched_user_details[:user_id]
         %w[name email email_verified].each do |property|
           auth["info"][property] = fetched_user_details[property.to_sym] if fetched_user_details[
