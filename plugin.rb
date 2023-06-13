@@ -125,6 +125,7 @@ class Auth::OverridedManagedAuthenticator < Auth::Authenticator
     result.username = info[:nickname]
     result.email_valid = primary_email_verified?(auth_token) if result.email.present?
     result.overrides_email = always_update_user_email?
+    result.overrides_name = true
     result.extra_data = { provider: auth_token[:provider], uid: auth_token[:uid] }
     result.user = association.user
 
