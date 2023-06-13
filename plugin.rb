@@ -126,6 +126,7 @@ class Auth::OverridedManagedAuthenticator < Auth::Authenticator
     result.email_valid = primary_email_verified?(auth_token) if result.email.present?
     result.overrides_email = always_update_user_email?
     result.overrides_name = true
+    result.overrides_username = true
     result.extra_data = { provider: auth_token[:provider], uid: auth_token[:uid] }
     result.user = association.user
 
@@ -158,9 +159,14 @@ class Auth::OverridedManagedAuthenticator < Auth::Authenticator
     User.find_by_username(username) if username
   end
 
+#   def retrieve_avatar(user, url)
+#     return unless user && url
+#     return if user.user_avatar.try(:custom_upload_id).present?
+#     Jobs.enqueue(:download_avatar_from_url, url: url, user_id: user.id, override_gravatar: false)
+#   end
+  
   def retrieve_avatar(user, url)
     return unless user && url
-    return if user.user_avatar.try(:custom_upload_id).present?
     Jobs.enqueue(:download_avatar_from_url, url: url, user_id: user.id, override_gravatar: false)
   end
 
