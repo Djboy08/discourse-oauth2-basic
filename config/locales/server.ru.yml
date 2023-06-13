@@ -12,7 +12,7 @@ ru:
     oauth2_client_id: "Идентификатор клиента для пользовательского OAuth2"
     oauth2_client_secret: "Секрет клиента для пользовательских OAuth2"
     oauth2_authorize_url: "URL авторизации для OAuth2"
-    oauth2_authorize_signup_url: '(необязательно) Альтернативный URL-адрес авторизации, используемый при задействовании кнопки ''Зарегистрироваться'''
+    oauth2_authorize_signup_url: "(необязательно) Альтернативный URL-адрес авторизации, используемый при задействовании кнопки 'Зарегистрироваться'"
     oauth2_token_url: "URL токена для OAuth2"
     oauth2_token_url_method: "Метод, используемый для получения URL токена"
     oauth2_callback_user_id_path: "Путь в ответе токена к идентификатору пользователя. например: params.info.uuid"
@@ -28,6 +28,9 @@ ru:
     oauth2_json_avatar_path: "Путь в Oauth2 User JSON к аватару пользователя. например: user.avatar_url"
     oauth2_email_verified: "Включите эту настройку, если OAuth2-сайт подтвердил адрес электронной почты."
     oauth2_overrides_email: "Заменять электронную почту Discourse удалённой электронной почтой при каждом входе в систему. Работает так же, как параметр `auth_overrides_email`, но только при входе в систему через OAuth2."
+    oauth2_overrides_username: "Override the Discourse username with the roblox username on every login. Works the same as the `auth_overrides_username` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_name: "Override the Discourse name with the roblox nickname on every login. Works the same as the `auth_overrides_name` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_avatar: "Override the Discourse avatar with the roblox avatar on every login. Works the same as the `auth_overrides_avatar` setting, but is specific to OAuth2 logins."
     oauth2_send_auth_header: "Отправлять учетные данные клиента в заголовке HTTP-запроса"
     oauth2_send_auth_body: "Отправлять учетные данные клиента в теле запроса"
     oauth2_debug_auth: "Добавлять в журнал расширенную отладочную информацию"

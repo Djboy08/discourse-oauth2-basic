@@ -12,7 +12,7 @@ he:
     oauth2_client_id: "מזהה לקוח ל־OAuth2 בהתאמה אישית"
     oauth2_client_secret: "סוד לקוח ל־OAuth2 בהתאמה אישית"
     oauth2_authorize_url: "כתובת אימות ל־OAuth2"
-    oauth2_authorize_signup_url: '(רשות) כתובת חלופית להרשאה בה ייעשה שימוש עם לחיצה על הכפתור „הרשמה”'
+    oauth2_authorize_signup_url: "(רשות) כתובת חלופית להרשאה בה ייעשה שימוש עם לחיצה על הכפתור „הרשמה”"
     oauth2_token_url: "כתובת אסימון ל־OAuth2"
     oauth2_token_url_method: "שיטה שמשמשת לקבלת כתובת האסימון"
     oauth2_callback_user_id_path: "נתיב בתגובת האסימון למזהה המשתמש, למשל: params.info.uuid"
@@ -28,6 +28,9 @@ he:
     oauth2_json_avatar_path: "נתיב כתובת התמונה הייצוגית של המשתמש ב־JSON של ה־OAuth2 של המשתמש. למשל: user.avatar_url"
     oauth2_email_verified: "נא לבדוק אם אתר זה עם OAuth2 אימת את הדוא״ל"
     oauth2_overrides_email: "לעקוף את הדוא״ל של Discourse בדוא״ל חיצוני בכל כניסה למערכת. עובד כמו ההגדרה `auth_overrides_email` (אימות עוקף דוא״ל), אך הוא משמש נקודתית לכניסה עם OAuth2."
+    oauth2_overrides_username: "Override the Discourse username with the roblox username on every login. Works the same as the `auth_overrides_username` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_name: "Override the Discourse name with the roblox nickname on every login. Works the same as the `auth_overrides_name` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_avatar: "Override the Discourse avatar with the roblox avatar on every login. Works the same as the `auth_overrides_avatar` setting, but is specific to OAuth2 logins."
     oauth2_send_auth_header: "שליחת פרטי גישה של לקוח בכותרת אימות (Authorization) של HTTP"
     oauth2_send_auth_body: "שליחת פרטי גישה של לקוח בגוף הבקשה"
     oauth2_debug_auth: "לכלול פירוט עשיר לטובת ניפוי שגיאות ביומנים שלך"

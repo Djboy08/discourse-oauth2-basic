@@ -12,7 +12,7 @@ ja:
     oauth2_client_id: "カスタム OAuth2 のクライアントID"
     oauth2_client_secret: "カスタム OAuth2 のクライアントシークレット"
     oauth2_authorize_url: "OAuth2 の認証 URL"
-    oauth2_authorize_signup_url: '（オプション）「登録」ボタンが使用される場合に使用される代替認証 URL'
+    oauth2_authorize_signup_url: "（オプション）「登録」ボタンが使用される場合に使用される代替認証 URL"
     oauth2_token_url: "OAuth2 のトークン URL"
     oauth2_token_url_method: "トークン URL を取得するために使用されるメソッド"
     oauth2_callback_user_id_path: "トークン応答内のユーザー ID へのパス。例: params.info.uuid"
@@ -28,6 +28,9 @@ ja:
     oauth2_json_avatar_path: "OAuth2 ユーザー JSON 内のユーザーのアバターへのパス。例: user.avatar_url"
     oauth2_email_verified: "OAuth2 サイトがメールアドレスを確認した場合はこれをオンにする"
     oauth2_overrides_email: "ログインのたびに、Discourse メールアドレスをリモートメールアドレスでオーバーライドする。 `auth_overrides_email` 設定と同様に機能しますが、OAuth2 ログインに特化しています。"
+    oauth2_overrides_username: "Override the Discourse username with the roblox username on every login. Works the same as the `auth_overrides_username` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_name: "Override the Discourse name with the roblox nickname on every login. Works the same as the `auth_overrides_name` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_avatar: "Override the Discourse avatar with the roblox avatar on every login. Works the same as the `auth_overrides_avatar` setting, but is specific to OAuth2 logins."
     oauth2_send_auth_header: "クライアントの資格情報を HTTP 認証ヘッダーで送信する"
     oauth2_send_auth_body: "クライアントの資格情報をリクエスト本文で送信する"
     oauth2_debug_auth: "ログに詳細なデバッグ情報を含める"

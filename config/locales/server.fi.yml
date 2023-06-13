@@ -12,7 +12,7 @@ fi:
     oauth2_client_id: "Mukautetun OAuth2:n asiakastunnus"
     oauth2_client_secret: "Mukautetun OAuth2:n asiakkaan salatunnus"
     oauth2_authorize_url: "OAuth2:n valtuutuksen URL-osoite"
-    oauth2_authorize_signup_url: '(valinnainen) Vaihtoehtoinen valtuutus-URL, jota käytetään, kun Rekisteröidy-painiketta käytetään'
+    oauth2_authorize_signup_url: "(valinnainen) Vaihtoehtoinen valtuutus-URL, jota käytetään, kun Rekisteröidy-painiketta käytetään"
     oauth2_token_url: "OAuth2:n tunnuksen URL-osoite"
     oauth2_token_url_method: "Tunnuksen URL-osoitteen hakemiseen käytetty menetelmä"
     oauth2_callback_user_id_path: "Polku tunnuksen vastauksessa käyttäjätunnukseen. esim.: params.info.uuid"
@@ -28,6 +28,9 @@ fi:
     oauth2_json_avatar_path: "Polku OAuth2:n käyttäjän JSON:ssä käyttäjän avatariin. esim.: user.avatar_url"
     oauth2_email_verified: "Tarkasta, onko tämä OAuth2 sivusto varmistanut sähköpostin"
     oauth2_overrides_email: "Ohita Discoursen sähköpostiosoite etäsähköpostilla jokaisen kirjautumisen yhteydessä. Toimii samalla tavalla kuin `auth_overrides_email`-asetus, mutta koskee OAuth2-kirjautumisia."
+    oauth2_overrides_username: "Override the Discourse username with the roblox username on every login. Works the same as the `auth_overrides_username` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_name: "Override the Discourse name with the roblox nickname on every login. Works the same as the `auth_overrides_name` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_avatar: "Override the Discourse avatar with the roblox avatar on every login. Works the same as the `auth_overrides_avatar` setting, but is specific to OAuth2 logins."
     oauth2_send_auth_header: "Lähetä asiakkaan tunnistetiedot HTTP Authorization -otsikkotiedoissa"
     oauth2_send_auth_body: "Lähetä asiakkaan tunnistetiedot pyynnön tekstiosassa"
     oauth2_debug_auth: "Sisällytä lokeihin laajat virheenkorjaustiedot"

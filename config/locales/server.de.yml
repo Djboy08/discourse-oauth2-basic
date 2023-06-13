@@ -12,7 +12,7 @@ de:
     oauth2_client_id: "Client-ID für benutzerdefiniertes OAuth2"
     oauth2_client_secret: "Client-Geheimnis für benutzerdefiniertes OAuth2"
     oauth2_authorize_url: "Autorisierungs-URL für OAuth2"
-    oauth2_authorize_signup_url: '(optional) Alternative Autorisierungs-URL, die zum Einsatz kommt, wenn die Schaltfläche „Registrieren“ verwendet wird'
+    oauth2_authorize_signup_url: "(optional) Alternative Autorisierungs-URL, die zum Einsatz kommt, wenn die Schaltfläche „Registrieren“ verwendet wird"
     oauth2_token_url: "Token-URL für OAuth2"
     oauth2_token_url_method: "Methode, mit der die Token-URL abgerufen wird"
     oauth2_callback_user_id_path: "Pfad in der Token-Antwort zur Benutzer-ID. Beispiel: params.info.uuid"
@@ -28,6 +28,9 @@ de:
     oauth2_json_avatar_path: "Pfad im OAuth2-Benutzer-JSON zum Avatar des Benutzers. Beispiel: user.avatar_url"
     oauth2_email_verified: "Aktivieren, wenn die OAuth2-Website die E-Mail verifiziert hat"
     oauth2_overrides_email: "Überschreibt die Discourse-E-Mail-Adresse bei jeder Anmeldung mit der remote E-Mail-Adresse. Funktioniert genauso wie die Einstellung `auth_overrides_email`, ist aber spezifisch für OAuth2-Anmeldungen."
+    oauth2_overrides_username: "Override the Discourse username with the roblox username on every login. Works the same as the `auth_overrides_username` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_name: "Override the Discourse name with the roblox nickname on every login. Works the same as the `auth_overrides_name` setting, but is specific to OAuth2 logins."
+    oauth2_overrides_avatar: "Override the Discourse avatar with the roblox avatar on every login. Works the same as the `auth_overrides_avatar` setting, but is specific to OAuth2 logins."
     oauth2_send_auth_header: "Client-Anmeldedaten in einem HTTP-Autorisierungs-Header senden"
     oauth2_send_auth_body: "Client-Anmeldedaten im Anfrage-Body senden"
     oauth2_debug_auth: "Ausführliche Informationen zur Fehlerbehebung in Protokolle aufnehmen"
