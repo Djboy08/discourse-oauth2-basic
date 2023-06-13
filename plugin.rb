@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# name: discourse-oauth2-basic
-# about: Generic OAuth2 Plugin
+# name: discourse-oauth2-roblox
+# about: Roblox OAuth2 Plugin
 # version: 0.3
-# authors: Robin Ward
+# authors: Robin Ward, (Edited by: Headless)
 # url: https://github.com/discourse/discourse-oauth2-basic
 # transpile_js: true
 
@@ -54,6 +54,18 @@ class Auth::OverridedManagedAuthenticator < Auth::Authenticator
   end
 
   def always_update_user_email?
+    false
+  end
+
+  def always_update_user_avatar?
+    false
+  end
+
+  def always_update_user_username?
+    false
+  end
+
+  def always_update_user_name?
     false
   end
 
@@ -125,8 +137,8 @@ class Auth::OverridedManagedAuthenticator < Auth::Authenticator
     result.username = info[:nickname]
     result.email_valid = primary_email_verified?(auth_token) if result.email.present?
     result.overrides_email = always_update_user_email?
-    result.overrides_name = true
-    result.overrides_username = true
+    result.overrides_name = always_update_user_name?
+    result.overrides_username = always_update_user_username?
     result.extra_data = { provider: auth_token[:provider], uid: auth_token[:uid] }
     result.user = association.user
 
@@ -167,6 +179,9 @@ class Auth::OverridedManagedAuthenticator < Auth::Authenticator
   
   def retrieve_avatar(user, url)
     return unless user && url
+    # Check if the user has a custom avatar already AND the always_update_user_avatar? setting is false
+    
+    return if user.user_avatar.try(:custom_upload_id).present? && !always_update_user_avatar?
     Jobs.enqueue(:download_avatar_from_url, url: url, user_id: user.id, override_gravatar: false)
   end
 
@@ -451,6 +466,18 @@ class ::OAuth2BasicAuthenticator < Auth::OverridedManagedAuthenticator
 
   def always_update_user_email?
     SiteSetting.oauth2_overrides_email
+  end
+
+  def always_update_user_avatar?
+    SiteSetting.oauth2_overrides_avatar
+  end
+
+  def always_update_user_username?
+    SiteSetting.oauth2_overrides_username
+  end
+
+  def always_update_user_name?
+    SiteSetting.oauth2_overrides_name
   end
 
   def after_authenticate(auth, existing_account: nil)

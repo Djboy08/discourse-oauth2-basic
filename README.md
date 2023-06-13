@@ -1,4 +1,31 @@
-## discourse-oauth2-basic
+## discourse-oauth2-roblox
+
+### Edited by Headless to support Roblox OAuth seamlessly
+
+This plugin allows you to connect with roblox OAuth to have a discourse forum that is
+100% driven by roblox accounts. You can make the choice to have your forum only connectable by
+roblox and have usernames, names, and avatars all assosiated with roblox.
+
+The Name, Username, and Avatar all get updated automatically when you log in.
+If a user ever changes their nickname, username, or avatar on roblox, they need to logout and back in
+to see the changes.
+
+## Important notes:
+
+If you want it so the user can't change their name, username, or avatar
+it is important to set the following to true so they can't change it in settings.
+
+DiscourseConnect:
+auth overrides username: true
+auth overrides name: true
+auth overrides avatar: true
+
+It is also important that if you just want players to log in with their accounts and nothing else,
+you should disable local logins on the forum so Roblox is the only way to log in.
+
+- Everything below is from the original discord-oauth2-basic plugin.
+
+---
 
 This plugin allows you to use a basic OAuth2 provider as authentication for
 Discourse. It should work with many providers, with the caveat that they
